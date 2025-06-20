@@ -1,0 +1,355 @@
+/* Estilos para el menú móvil */
+.menu-toggle {
+    display: none;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.menu-icon {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    position: relative;
+    transition: background-color 0.3s;
+}
+
+.menu-icon::before,
+.menu-icon::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: #333;
+    transition: transform 0.3s;
+}
+
+.menu-icon::before {
+    top: -8px;
+}
+
+.menu-icon::after {
+    bottom: -8px;
+}
+
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+}
+
+.close-sidebar {
+    display: none;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .close-sidebar {
+        display: block;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -300px;
+        height: 100vh;
+        width: 250px;
+        background-color: white;
+        z-index: 999;
+        transition: left 0.3s ease;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
+
+    .sidebar-overlay.active {
+        display: block;
+    }
+
+    body.sidebar-open {
+        overflow: hidden;
+    }
+}
+
+/* --- Comunidad --- */
+.comunidad-container {
+    background: #181c1b;
+    min-height: 100vh;
+}
+.comunidad-main {
+    padding: 2rem 1rem;
+    background: #181c1b;
+}
+.comunidad-header-bg {
+    background: linear-gradient(90deg, #181c1b 0%, #222 100%);
+    color: #27ae60;
+    border-radius: 1rem;
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 16px rgba(39,174,96,0.10);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    border: 1px solid #222;
+}
+.comunidad-header-bg h1 {
+    font-size: 2.2rem;
+    margin: 0 0 0.5rem 0;
+    font-weight: 700;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    color: #27ae60;
+}
+.comunidad-volver {
+    color: #27ae60;
+    background: #fff;
+    border-radius: 0.5rem;
+    padding: 0.4rem 1rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s, border 0.2s;
+    border: 1px solid #27ae60;
+}
+.comunidad-volver:hover {
+    background: #27ae60;
+    color: #fff;
+    border: 1px solid #27ae60;
+}
+
+.comunidad-section {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+}
+.comunidad-card {
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 2px 12px rgba(39,174,96,0.08);
+    padding: 2rem 1.5rem;
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    transition: box-shadow 0.2s;
+    color: #181c1b;
+    border: 1px solid #e6e6e6;
+}
+.comunidad-card:hover {
+    box-shadow: 0 6px 24px rgba(39,174,96,0.13);
+}
+.comunidad-card h2 {
+    color: #27ae60;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.comunidad-foros-list {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+.comunidad-foro-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #27ae60;
+    background: #fff;
+    border: 1px solid #27ae60;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s;
+}
+.comunidad-foro-link:hover {
+    background: #27ae60;
+    color: #fff;
+}
+.comunidad-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.comunidad-form label {
+    font-weight: 500;
+    color: #27ae60;
+}
+.comunidad-form textarea {
+    border: 1px solid #27ae60;
+    border-radius: 0.5rem;
+    padding: 0.8rem;
+    font-size: 1rem;
+    resize: vertical;
+    min-height: 90px;
+    background: #fff;
+    transition: border 0.2s, background 0.2s, color 0.2s;
+    color: #181c1b;
+}
+.comunidad-form textarea:focus {
+    border: 1.5px solid #27ae60;
+    outline: none;
+    background: #f7f7f7;
+    color: #27ae60;
+}
+.comunidad-btn-publicar {
+    background: linear-gradient(90deg, #27ae60 0%, #2ecc40 100%);
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(39,174,96,0.08);
+    transition: background 0.2s, box-shadow 0.2s, transform 0.1s, color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.comunidad-btn-publicar:hover, .comunidad-btn-publicar:focus {
+    background: linear-gradient(90deg, #181c1b 0%, #27ae60 100%);
+    box-shadow: 0 4px 16px rgba(39,174,96,0.13);
+    transform: translateY(-2px) scale(1.03);
+    color: #27ae60;
+    border: 1px solid #27ae60;
+}
+
+/* --- Comentarios Comunidad --- */
+.comentarios-lista {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+.comentario-item {
+    background: #fff;
+    border: 1px solid #27ae60;
+    border-radius: 0.7rem;
+    padding: 1rem 1.2rem;
+    box-shadow: 0 1px 4px rgba(39,174,96,0.07);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: relative;
+    animation: fadeIn 0.4s;
+    color: #181c1b;
+}
+.comentario-contenido {
+    color: #27ae60;
+    font-size: 1.05rem;
+    word-break: break-word;
+}
+.comentario-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.93rem;
+    color: #27ae60;
+}
+.comentario-fecha {
+    opacity: 0.7;
+}
+.comentario-eliminar {
+    background: none;
+    border: 1px solid #27ae60;
+    color: #27ae60;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.3rem;
+    transition: background 0.2s, color 0.2s;
+}
+.comentario-eliminar:hover {
+    background: #27ae60;
+    color: #fff;
+}
+.comentario-vacio {
+    color: #27ae60;
+    text-align: center;
+    font-style: italic;
+    margin-top: 1rem;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .comunidad-main {
+        padding: 1rem 0.2rem;
+    }
+    .comunidad-card {
+        padding: 1.2rem 0.7rem;
+    }
+    .comunidad-header-bg {
+        padding: 1.2rem 0.7rem 1rem 0.7rem;
+    }
+}
+@media (max-width: 600px) {
+    .comunidad-header-bg h1 {
+        font-size: 1.3rem;
+    }
+    .comunidad-card h2 {
+        font-size: 1.1rem;
+    }
+    .comentario-item {
+        padding: 0.7rem 0.5rem;
+    }
+}
+
+/* --- Estilos para las pestañas de foros --- */
+.comunidad-foros-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+    justify-content: center;
+}
+.foro-tab {
+    background: #fff;
+    color: #27ae60;
+    border: 1.5px solid #27ae60;
+    border-radius: 0.5rem 0.5rem 0 0;
+    padding: 0.5rem 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border 0.2s;
+    outline: none;
+}
+.foro-tab.active, .foro-tab:hover, .foro-tab:focus {
+    background: #27ae60;
+    color: #fff;
+    border-bottom: 2.5px solid #fff;
+    z-index: 2;
+}

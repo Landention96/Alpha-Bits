@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Alpha Bits - Noticias</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <style>
+      /* Estilos visuales para la página de noticias */
+      body {
+        background: #181c24;
+        color: #f3f3f3;
+      }
+      .noticias-principales {
+        max-width: 900px;
+        margin: 2rem auto;
+        background: #23283a;
+        border-radius: 18px;
+        box-shadow: 0 4px 24px #000a  ;
+        padding: 2.5rem 2rem 2rem 2rem;
+        animation: fadein 1s;
+      }
+      .noticias-principales h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        color: #39ff14;
+        margin-bottom: 1.5rem;
+        letter-spacing: 2px;
+      }
+      .noticias-lista {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 2rem;
+      }
+      @media (max-width: 900px) {
+        .noticias-lista { grid-template-columns: 1fr 1fr; }
+      }
+      @media (max-width: 600px) {
+        .noticias-lista { grid-template-columns: 1fr; }
+      }
+      .noticia {
+        background: #23283a;
+        border-radius: 14px;
+        box-shadow: 0 2px 12px #0007;
+        padding: 1.5rem 1rem;
+        transition: transform 0.2s, box-shadow 0.2s;
+        border-left: 5px solid #39ff14;
+        position: relative;
+        overflow: hidden;
+      }
+      .noticia:hover {
+        transform: translateY(-6px) scale(1.03);
+        box-shadow: 0 8px 32px #000b;
+        background: #27304a;
+      }
+      .noticia h3 {
+        font-size: 1.3rem;
+        color: #39ff14;
+        margin-bottom: 0.7rem;
+        font-weight: bold;
+        text-shadow: 0 2px 8px #0008;
+      }
+      .noticia p {
+        font-size: 1rem;
+        color: #e0e0e0;
+        margin-bottom: 0;
+      }
+      .noticia::before {
+        content: "\f1ea";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        font-size: 2.2rem;
+        color: #39ff1440;
+        pointer-events: none;
+      }
+      @keyframes fadein {
+        from { opacity: 0; transform: translateY(40px);}
+        to { opacity: 1; transform: none;}
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo-container">
+                <div class="logo">
+                    <a href="index.html" title="Ir al inicio">
+                        <img src="images/logo.png" alt="Alpha Bits Logo" class="logo-img">
+                    </a>
+                </div>
+                <h1>Alpha Bits</h1>
+                <div class="slogan">Domina tu juego, forja tu leyenda</div>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li>
+                        <a href="index.html" class="menu-link"><i class="fas fa-home"></i> <span>Inicio</span></a>
+                    </li>
+                    <li>
+                        <a href="noticias.html" class="menu-link menu-link-noticias active"><i class="fas fa-newspaper"></i> <span>Noticias</span></a>
+                    </li>
+                    <!-- Puedes agregar más enlaces igual que en index.html -->
+                </ul>
+            </nav>
+        </aside>
+        <div class="sidebar-overlay"></div>
+        <main class="main-content">
+            <section class="noticias-principales">
+                <h2><i class="fas fa-newspaper"></i> Noticias</h2>
+                <div class="noticias-lista">
+                    <article class="noticia">
+                        <h3>Nueva actualización de Baldur's Gate 3 disponible</h3>
+                        <p>El aclamado RPG recibe una actualización con nuevas misiones y mejoras de rendimiento.</p>
+                    </article>
+                    <article class="noticia">
+                        <h3>Se anuncia la fecha de lanzamiento de Zenless Zone Zero</h3>
+                        <p>El esperado juego de acción llegará a consolas y PC el próximo mes.</p>
+                    </article>
+                    <article class="noticia">
+                        <h3>¡Fortnite celebra un nuevo evento de temporada!</h3>
+                        <p>Epic Games sorprende a la comunidad con desafíos y recompensas exclusivas.</p>
+                    </article>
+                    <!-- Puedes agregar más noticias aquí -->
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

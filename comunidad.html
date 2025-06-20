@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comunidad - Alpha Bits</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Iconos de Font Awesome (igual que en la principal) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Elimina el botón de login y el span de usuario de la cabecera de comunidad -->
+  <div class="container comunidad-container">
+    <aside class="sidebar">
+      <div class="logo-container">
+        <div class="logo">
+          <a href="index.html" title="Ir al inicio">
+            <!-- Puedes poner aquí tu logo como imagen o icono -->
+            <img src="images/logo.png" alt="Alpha Bits Logo" class="logo-img" style="max-width:60px;max-height:60px;">
+          </a>
+        </div>
+        <h1>Alpha Bits</h1>
+        <p class="slogan">Tu portal de videojuegos</p>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li>
+            <a href="index.html" class="menu-link">
+              <i class="fas fa-home"></i>
+              <span>Inicio</span>
+            </a>
+          </li>
+          <li>
+            <a href="comunidad.html" class="menu-link active">
+              <i class="fas fa-users"></i>
+              <span>Comunidad</span>
+            </a>
+          </li>
+          <!-- Agrega más enlaces si lo deseas -->
+        </ul>
+      </nav>
+    </aside>
+    <main class="main-content comunidad-main">
+      <header class="comunidad-header">
+        <div class="comunidad-header-bg">
+          <h1><i class="fas fa-users"></i> Comunidad Alpha Bits</h1>
+          <a href="index.html" class="menu-link comunidad-volver">
+            <i class="fas fa-arrow-left"></i> Volver al inicio
+          </a>
+        </div>
+      </header>
+      <section class="comunidad-section comunidad-foros">
+        <div class="comunidad-card">
+          <h2><i class="fas fa-comments"></i> Foros y Grupos</h2>
+          <p>¡Únete a la conversación! Comparte tus experiencias y recomendaciones con otros jugadores.</p>
+          <!-- Aquí puedes agregar foros, enlaces, etc. -->
+          <div class="comunidad-foros-list">
+            <a href="#" class="comunidad-foro-link"><i class="fas fa-gamepad"></i> Foro General</a>
+            <a href="#" class="comunidad-foro-link"><i class="fas fa-fire"></i> Novedades y Estrenos</a>
+            <a href="#" class="comunidad-foro-link"><i class="fas fa-users"></i> Grupos de Juego</a>
+          </div>
+        </div>
+      </section>
+      <section class="comunidad-section comunidad-experiencia">
+        <div class="comunidad-card">
+          <h2><i class="fas fa-share-alt"></i> Comparte tu Experiencia</h2>
+          <div class="comunidad-foros-tabs">
+            <button class="foro-tab active" data-foro="general">Foro General</button>
+            <button class="foro-tab" data-foro="novedades">Novedades y Estrenos</button>
+            <button class="foro-tab" data-foro="grupos">Grupos y Juego</button>
+          </div>
+          <div id="usuario-comunidad" style="margin-bottom:1rem;color:#27ae60;font-weight:bold;"></div>
+          <form class="comunidad-form" id="comentario-form" style="display:none;">
+            <label for="mensaje">Tu mensaje:</label>
+            <textarea id="mensaje" rows="5" cols="40" placeholder="Cuéntanos tu experiencia..." required></textarea>
+            <button type="submit" class="comunidad-btn-publicar"><i class="fas fa-paper-plane"></i> Publicar</button>
+          </form>
+          <div id="comentario-login-msg" class="comentario-vacio" style="display:none;">
+            Debes <a href="#" id="abrir-login-comunidad" style="color:#27ae60;text-decoration:underline;">iniciar sesión</a> para comentar.
+          </div>
+          <div id="comentarios-lista" class="comentarios-lista"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="comunidad.js"></script>
+  <script>
+    // Maneja el enlace "iniciar sesión" del mensaje de comunidad para abrir el modal de login
+    document.addEventListener('DOMContentLoaded', function() {
+      var loginLink = document.getElementById('abrir-login-comunidad');
+      if (loginLink) {
+        loginLink.addEventListener('click', function(e) {
+          e.preventDefault();
+          // Si hay un modal de login embebido en la página, ábrelo
+          if (window.openLoginModal) {
+            window.openLoginModal();
+          } else {
+            // Si no, intenta hacer click en el botón de login principal (si existe)
+            var btn = document.getElementById('open-login-modal');
+            if (btn) btn.click();
+            // Si tampoco existe, muestra un aviso
+            else alert('No se encontró el sistema de inicio de sesión.');
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
